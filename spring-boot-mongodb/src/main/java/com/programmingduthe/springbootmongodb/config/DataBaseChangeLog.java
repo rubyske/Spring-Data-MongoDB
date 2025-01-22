@@ -21,6 +21,13 @@ public class DataBaseChangeLog {
         expenseRepository.insert(expenseList);
     }
 
+    @ChangeSet(order = "002", id = "seedDataBase2", author = "Dude")
+    public void seedDataBase2(ExpenseRepository expenseRepository){
+        List<Expense> expenseList = new ArrayList<>();
+        expenseList.add(createNewExpense("KFC", ExpenseCategory.RESTAURANT, BigDecimal.valueOf(20) ));
+        expenseRepository.insert(expenseList);
+    }
+
     private Expense createNewExpense(String expenseName, ExpenseCategory expenseCategory, BigDecimal expenseAmount){
         Expense expense = new Expense();
         expense.setExpenseName(expenseName);
